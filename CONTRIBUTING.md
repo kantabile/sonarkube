@@ -37,3 +37,10 @@
   │   └── 아직-미완성한-파일이에요.md
   ...
   ```
+- 주의 : Title 의 시작이 @ 등의 기호인 경우, title 전체를 quote 로 감싸주세요.
+  ```javascript
+  YYYY-DD-MM-title.md
+  
+  title: @Transactional 은 옳지 않습니다. (X)
+  title: '@Transactional 은 옳습니다.' (O)
+  ```
