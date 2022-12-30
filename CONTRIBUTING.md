@@ -20,15 +20,23 @@
     ...
     ```
 - Rules 번역 시, 카테고리화를 위해 아래의 박스친 항목들을 태그화 혹은 카테고리화 하여 관리해야 합니다.  
-  ![guide-image](./document/images/transliate-guide.png)  
+카테고리와 태그의 차이는, 카테고리는 permalink 등 url에 포함될 변수로 활용할 수 있지만, 태그는 활용이 불가능 하다는 차이가 있습니다. (그냥 태그쓰셔도 됩니다)  
+![guide-image](./document/images/transliate-guide.png)  
 태그는 front-matter 항목에 tags 혹은 categories 에 배열 형식으로 작성할 수 있습니다.  
+태그에는 기본적으로 **본인이 번역한 문서의 언어**를 포함해주세요!  
+오역 시 바로잡을 수 있도록, 번역한 문서의 하단에 원문 링크를 포함해주세요.
   ```
   2022-12-28-collect-with-streams-instead-of-list::add.md
   ---
   layout: post
   title:  "collect 는 thread-safe 합니다."
-  (tags || categories): [java8, Minor]
+  (tags || categories): [java8, Minor, java] # 자바문서기에 java 태그를 꼭 넣어주세요!
   ---
+  content....
+  
+  ---
+  [원문으로 바로가기](https://rules.sonarsource.com/{링크})
+  
   ```
 - 아직 포스트 작성이 완료되지 않거나, 발행을 원치 않는 포스트들은 `_drafts` 하위 폴더에 md 파일을 작성해주세요.
   ```
@@ -37,6 +45,7 @@
   │   └── 아직-미완성한-파일이에요.md
   ...
   ```
+- 중요하다고 생각되는 문서에는 `readthis` 태그를 포함해주세요.
 - 주의 : Title 의 시작이 @ 등의 기호인 경우, title 전체를 quote 로 감싸주세요.
   ```javascript
   YYYY-DD-MM-title.md
