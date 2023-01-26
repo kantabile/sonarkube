@@ -1,0 +1,62 @@
+---
+title: "하위 클래스의 멤버 변수가 상위 클래스의 멤버 변수를 접근하지 못하게 이름이 중복 처리되선 안 됩니다"
+tags: [java, Blocker, confusing]
+---
+
+관련 없는 두 클래스에 동일한 이름의 변수가 있는 것은 상관없습니다.
+하지만 같은 계보에 있는 두 클래스에 같은 일이 벌어질 경우, 다행히도 잠깐 헷갈리는 정도일 수도 있지만 최악의 경우에는 치명적인 버그를 야기합니다.
+
+### 규칙을 어긴 코드
+
+```java
+public class Fruit {
+  protected Season ripe;
+  protected Color flesh;
+
+  // ...
+}
+
+public class Raspberry extends Fruit {
+  private boolean ripe;  // 규칙을 어긴 코드
+  private static Color FLESH; // 규칙을 어긴 코드
+}
+```
+
+### 규칙을 준수한 해결책
+
+```java
+public class Fruit {
+  protected Season ripe;
+  protected Color flesh;
+
+  // ...
+}
+
+public class Raspberry extends Fruit {
+  private boolean ripened;
+  private static Color FLESH_COLOR;
+
+}
+```
+
+### 예외
+
+```java
+public class Fruit {
+  private Season ripe;
+  // ...
+}
+
+public class Raspberry extends Fruit {
+  private Season ripe;  // Parent에 있는 ripe이 Raspberry에서는 어찌되었든 보이지 않으니 허용됩니다.
+  // ...
+}
+```
+
+---
+
+If you like SONARKUBE, don't forget to give me a star. :star2:
+
+> [원문으로 바로가기](https://rules.sonarsource.com/java/tag/confusing/RSPEC-2387)
+
+> [![Star This Project](https://img.shields.io/github/stars/kantabile/sonarkube.svg?label=Stars&style=social)](https://github.com/kantabile/sonarkube)
