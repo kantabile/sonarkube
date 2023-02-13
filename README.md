@@ -1,4 +1,4 @@
-<a href="https://inf.run/BMEv">
+<a href="https://kantabile.github.io/sonarkube/">
   <img max-width="700px" src="document/images/sonarkube.png" />
 </a>
 
