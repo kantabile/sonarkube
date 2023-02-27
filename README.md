@@ -26,15 +26,12 @@ jekyll serve # _site 하위의 정적 디렉토리를 localhost:4000 으로 서�
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/isangu"><img src="https://avatars3.githubusercontent.com/u/24788424?v=4" width="100px;" alt=""/><br /><sub><b>isangu</b></sub></a><br/></td>
-    <td align="center"><a href="https://kok202.tistory.com"><img src="https://avatars3.githubusercontent.com/u/39543643?v=4" width="100px;" alt=""/><br /><sub><b>kok202</b></sub></a><br/></td>
-    <td align="center"><a href="https://github.com/gimunlee"><img src="https://avatars0.githubusercontent.com/u/46181475?v=4" width="100px;" alt=""/><br /><sub><b>gimunlee</b></sub></a><br/></td>
-    <td align="center"><a href="https://github.com/bourbonkk"><img src="https://avatars0.githubusercontent.com/u/25188468?v=4" width="100px;" alt=""/><br /><sub><b>Allen Kim</b></sub></a><br/></td>
-    <td align="center"><a href="https://github.com/ssungwxx"><img src="https://avatars0.githubusercontent.com/u/21700738?v=4" width="100px;" alt=""/><br /><sub><b>Sungwoo Kim</b></sub></a><br/></td>
-  </tr>
-</table>
+
+
+<a href="https://github.com/kantabile/sonarkube/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kantabile/sonarkube" />
+</a>
+
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
