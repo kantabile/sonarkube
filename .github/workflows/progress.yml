@@ -1,0 +1,37 @@
+name: Check Translation Progress
+
+on:
+  push:
+    branches:
+      -master
+
+jobs:
+  count_file_list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set Envirionment Variables
+        run: |
+          export JAVA_FILE_COUNT=$(cat ./_data/JavaRuleList.txt | wc -l)
+          export TOTAL_JAVA_FILE_COUNT=$(ls -1 ./_posts/java | grep -f ./_data/JavaRuleList.txt | wc -l)
+          export PYTHON_FILE_COUNT=$(cat ./_data/PythonRuleList.txt | wc -l)
+          export TOTAL_PYTHON_FILE_COUNT=$(ls -1 ./_posts/python | grep -f ./_data/PythonRuleList.txt | wc -l)
+          export K8S_FILE_COUNT=$(ls -1 ./_posts/kubernetes | grep -f ./_data/KubernetesRuleList.txt | wc -l)
+          export TOTAL_K8S_FILE_COUNT=$(find . -type f -name '*.yaml' -o -name '*.yml' | grep -v './vendor/' | grep -i 'k8s' | wc -l)
+          
+      - name: Update README
+        run: |
+          sed -i "s/{{JAVA_FILE_COUNT}}/$JAVA_FILE_COUNT/g" README.md
+          sed -i "s/{{TOTAL_JAVA_FILE_COUNT}}/$TOTAL_JAVA_FILE_COUNT/g" README.md
+          sed -i "s/{{PYTHON_FILE_COUNT}}/$PYTHON_FILE_COUNT/g" README.md
+          sed -i "s/{{TOTAL_PYTHON_FILE_COUNT}}/$TOTAL_PYTHON_FILE_COUNT/g" README.md
+          sed -i "s/{{K8S_FILE_COUNT}}/$K8S_FILE_COUNT/g" README.md
+          sed -i "s/{{TOTAL_K8S_FILE_COUNT}}/$TOTAL_K8S_FILE_COUNT/g" README.md
+
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update README with variable values"
+      
