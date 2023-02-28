@@ -3,7 +3,7 @@ name: Check Translation Progress
 on:
   push:
     branches:
-      -master
+      - master
 
 jobs:
   count_file_list:
